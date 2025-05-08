@@ -11,11 +11,15 @@ type ThemeProviderProps = {
 type ThemeProviderState = {
   theme: Theme;
   setTheme: (theme: Theme) => void;
+  scrollThemeTransition: boolean;
+  setScrollThemeTransition: (enabled: boolean) => void;
 };
 
 const initialState: ThemeProviderState = {
   theme: "system",
-  setTheme: () => null
+  setTheme: () => null,
+  scrollThemeTransition: true,
+  setScrollThemeTransition: () => null,
 };
 
 const ThemeProviderContext = createContext<ThemeProviderState>(initialState);
@@ -28,6 +32,14 @@ export function ThemeProvider({
 }: ThemeProviderProps) {
   const [theme, setTheme] = useState<Theme>(
     () => (localStorage.getItem(storageKey) as Theme) || "system"
+  );
+  
+  // State for scroll theme transition (enabled by default)
+  const [scrollThemeTransition, setScrollThemeTransition] = useState<boolean>(
+    () => {
+      const saved = localStorage.getItem("chess-society-scroll-theme");
+      return saved !== null ? saved === "true" : true;
+    }
   );
 
   // Handle theme changes
@@ -60,7 +72,12 @@ export function ThemeProvider({
     
     // Set base background transition color based on theme
     if (appliedTheme === "dark") {
-      root.style.setProperty('--background-transition', 'hsl(224 71% 4%)');
+      // Initialize with the lighter dark mode variant if scroll theme transition is enabled
+      const initialBackground = scrollThemeTransition 
+        ? 'hsl(224 30% 15%)' // Lighter dark mode for top of page
+        : 'hsl(224 71% 4%)';  // Original dark mode
+      
+      root.style.setProperty('--background-transition', initialBackground);
     } else {
       root.style.setProperty('--background-transition', 'hsl(0 0% 100%)');
     }
@@ -68,21 +85,35 @@ export function ThemeProvider({
     // Apply immediate background colors to prevent flashing
     // These will be transitioned by CSS
     if (appliedTheme === "dark") {
+      // Use lighter dark mode on initial load if scroll transitions are enabled
+      const bgColor = scrollThemeTransition 
+        ? 'hsl(224 30% 15%)' // Lighter dark mode for top of page
+        : 'hsl(224 71% 4%)';  // Original dark mode
+        
       document.querySelectorAll('main').forEach(el => {
-        (el as HTMLElement).style.backgroundColor = 'hsl(224 71% 4%)';
+        (el as HTMLElement).style.backgroundColor = bgColor;
       });
     } else {
       document.querySelectorAll('main').forEach(el => {
         (el as HTMLElement).style.backgroundColor = 'hsl(0 0% 100%)';
       });
     }
-  }, [theme]);
+  }, [theme, scrollThemeTransition]);
+  
+  // Effect to store scroll theme transition setting
+  useEffect(() => {
+    localStorage.setItem("chess-society-scroll-theme", scrollThemeTransition.toString());
+  }, [scrollThemeTransition]);
 
   const value = {
     theme,
     setTheme: (theme: Theme) => {
       localStorage.setItem(storageKey, theme);
       setTheme(theme);
+    },
+    scrollThemeTransition,
+    setScrollThemeTransition: (enabled: boolean) => {
+      setScrollThemeTransition(enabled);
     }
   };
 

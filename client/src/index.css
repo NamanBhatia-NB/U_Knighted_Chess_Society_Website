@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 @layer base {
-  :root, :root.light {
+  :root {
+    /* Light mode variables */
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
 
@@ -34,18 +35,18 @@
 
     --radius: 0.5rem;
     
+    /* Dark mode theme gradient variables */
+    --dark-background-light: 224 30% 15%; /* Lighter navy background for start of scroll */
+    --dark-background-dark: 224 71% 4%; /* Original dark navy (#050A14) for end of scroll */
+    --dark-card-light: 225 30% 18%; /* Lighter card background */
+    --dark-card-dark: 225 50% 7%; /* Original card background */
+    --dark-popover-light: 224 30% 17%;
+    --dark-popover-dark: 224 71% 6%;
+    
     color-scheme: light;
   }
-
-  /* Dark mode theme gradient variables */
-  --dark-background-light: 224 30% 15%; /* Lighter navy background for start of scroll */
-  --dark-background-dark: 224 71% 4%; /* Original dark navy (#050A14) for end of scroll */
-  --dark-card-light: 225 30% 18%; /* Lighter card background */
-  --dark-card-dark: 225 50% 7%; /* Original card background */
-  --dark-popover-light: 224 30% 17%;
-  --dark-popover-dark: 224 71% 6%;
   
-  :root.dark, .dark {
+  .dark {
     /* Use CSS custom properties to interpolate between light and dark shades based on scroll position */
     --background: var(--dark-background-dark); /* Default to darkest (bottom of page) */
     --foreground: 0 0% 98%; /* Nearly white text for contrast */
@@ -362,6 +363,12 @@
     --background-transition: var(--initial-background);
   }
   
+  /* Transition-related variables */
+  :root {
+    --dark-theme-transition-factor: 0%;
+    --theme-transition-speed: 0.7s;
+  }
+  
   /* Apply background transition to entire document */
   html, body {
     background-color: var(--background-transition);
@@ -372,6 +379,33 @@
   main, section, div.bg-background, header, footer {
     background-color: var(--background-transition);
     transition: background-color var(--theme-transition-duration) var(--transition-timing);
+  }
+  
+  /* Dark mode background gradient based on scroll position */
+  .dark body, 
+  .dark main,
+  .dark section,
+  .dark header, 
+  .dark footer,
+  .dark div.bg-background {
+    background-color: hsl(
+      224 
+      calc(30% - ((30% - 71%) * var(--dark-transition-factor, 0%) / 100%))
+      calc(15% - ((15% - 4%) * var(--dark-transition-factor, 0%) / 100%))
+    );
+    transition: background-color var(--theme-transition-speed) ease;
+  }
+  
+  /* Dark mode card gradient based on scroll position */
+  .dark .theme-card,
+  .dark [data-theme="dark"],
+  .dark .bg-card {
+    background-color: hsl(
+      225
+      calc(30% - ((30% - 50%) * var(--dark-transition-factor, 0%) / 100%))
+      calc(18% - ((18% - 7%) * var(--dark-transition-factor, 0%) / 100%))
+    );
+    transition: background-color var(--theme-transition-speed) ease;
   }
   
   /* Theme transition elements with smooth transitions */
