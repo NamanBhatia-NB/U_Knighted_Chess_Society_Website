@@ -597,6 +597,87 @@
   background-color: transparent !important;
 }
 
-.dark main, .dark section, .dark div, .dark header, .dark footer {
+/* Make all containers transparent to show the gradient background */
+.dark main, 
+.dark section, 
+.dark header, 
+.dark footer,
+.dark nav,
+.dark .bg-background,
+.dark [class*="bg-"],
+.dark div:not([class*="text-"]):not([class*="border-"]):not([class*="ring-"]):not([class*="shadow-"]):not([class*="outline-"]) {
   background-color: transparent !important;
+}
+
+/* For elements that need background, use rgba with alpha instead of hsl */
+.dark .bg-card,
+.dark .card,
+.dark .theme-card,
+.dark .bg-muted,
+.dark .bg-popover,
+.dark [data-theme="dark"] {
+  background-color: rgba(5, 10, 20, 0.4) !important;
+  backdrop-filter: blur(8px);
+}
+
+/* Preserve text colors and other properties */
+.dark .text-primary,
+.dark .text-secondary,
+.dark .text-accent {
+  color: inherit;
+}
+
+/* Make important content more readable */
+.dark h1, .dark h2, .dark h3 {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.25);
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Enhanced dark mode text for better readability against the gradient */
+.dark p, .dark span, .dark a, .dark button, .dark input {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Make button backgrounds slightly more opaque for better visibility */
+.dark button, 
+.dark .btn,
+.dark [role="button"] {
+  background-color: rgba(20, 30, 60, 0.6) !important;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(100, 150, 255, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Keep theme toggle and navigation visible */
+.dark [aria-label="Toggle theme"],
+.dark [aria-label="Toggle navigation"] {
+  background-color: rgba(20, 30, 60, 0.4) !important;
+}
+
+/* Style the nav links in dark mode */
+.dark nav a {
+  color: hsl(0, 0%, 98%) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  transition: all 0.2s ease;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.25rem;
+}
+
+.dark nav a:hover {
+  background-color: rgba(100, 150, 255, 0.1);
+}
+
+/* Add a subtle glow to "Join Us" button */
+.dark a[href="/join"],
+.dark [href*="join"]:not([class*="bg-"]) {
+  background-color: hsla(43, 100%, 50%, 0.1) !important;
+  box-shadow: 0 0 15px rgba(255, 200, 0, 0.3);
+}
+
+/* Make the chess board container standout better on dark background */
+.dark canvas {
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
 }

@@ -30,8 +30,8 @@ export default function DarkModeScroll() {
       setScrollPosition(scrollPercentage);
       
       // Interpolate between colors based on scroll percentage
-      const lightNavy = { h: 224, s: 40, l: 25 }; // Lighter navy
-      const darkNavy = { h: 224, s: 71, l: 4 };   // Darker navy
+      const lightNavy = { h: 224, s: 45, l: 28 }; // Lighter navy (slightly more vibrant)
+      const darkNavy = { h: 224, s: 75, l: 4 };   // Darker navy (more saturated)
       
       // Linear interpolation between colors
       const h = lightNavy.h;
