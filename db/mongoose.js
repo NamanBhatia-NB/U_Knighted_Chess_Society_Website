@@ -5,8 +5,8 @@ dotenv.config();
 
 const connectDB = async () => {
   try {
-    // Use only the environment variable MONGO_URI without fallback
-    const mongoURI = process.env.MONGO_URI;
+    // Use the environment variable MONGO_URI with localhost fallback
+    const mongoURI = process.env.MONGO_URI || 'mongodb://localhost:27017/chess_society';
     
     if (!mongoURI) {
       console.error('ERROR: MONGO_URI environment variable is required');
@@ -14,7 +14,9 @@ const connectDB = async () => {
       return false;
     }
     
-    console.log('Connecting to MongoDB...');
+    // Mask the connection string for security but show whether using localhost or remote
+    const isLocalhost = mongoURI.includes('localhost');
+    console.log(`Connecting to MongoDB ${isLocalhost ? '(localhost)' : '(remote server)'}...`);
     
     // MongoDB connection options with timeout and retry settings
     const options = {
