@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "title": "Annual Chess Championship",
+    "category": "Tournament",
+    "description": "Highlights from our annual chess championship where students compete for the university title.",
+    "imageUrl": "https://images.pexels.com/photos/5582597/pexels-photo-5582597.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "date": "2025-04-15"
+  },
+  {
+    "id": 2,
+    "title": "Masters vs. Students Match",
+    "category": "Event",
+    "description": "A special event where chess masters from the region played against our top university students.",
+    "imageUrl": "https://images.pexels.com/photos/260024/pexels-photo-260024.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "date": "2025-03-22"
+  },
+  {
+    "id": 3,
+    "title": "Chess Strategy Workshop",
+    "category": "Workshop",
+    "description": "Students learning advanced chess strategies and tactics from Grandmaster Elizabeth Chen.",
+    "imageUrl": "https://images.pexels.com/photos/1279368/pexels-photo-1279368.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "date": "2025-03-10"
+  },
+  {
+    "id": 4,
+    "title": "Chess in the Park",
+    "category": "Community",
+    "description": "Our monthly outdoor chess event in the university park, open to all students and faculty.",
+    "imageUrl": "https://images.pexels.com/photos/280746/pexels-photo-280746.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "date": "2025-02-15"
+  },
+  {
+    "id": 5,
+    "title": "International Chess Day Celebration",
+    "category": "Event",
+    "description": "A special gathering to celebrate International Chess Day with exhibitions and friendly matches.",
+    "imageUrl": "https://images.pexels.com/photos/163407/chess-figures-black-and-white-board-game-163407.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "date": "2025-02-02"
+  },
+  {
+    "id": 6,
+    "title": "Beginners Chess Camp",
+    "category": "Workshop",
+    "description": "A weekend camp for beginners to learn the fundamentals of chess in a friendly environment.",
+    "imageUrl": "https://images.pexels.com/photos/411195/pexels-photo-411195.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "date": "2025-01-20"
+  },
+  {
+    "id": 7,
+    "title": "Chess Club Welcome Party",
+    "category": "Social",
+    "description": "The welcome event for new members joining our chess society for the academic year.",
+    "imageUrl": "https://images.pexels.com/photos/1152662/pexels-photo-1152662.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "date": "2025-01-12"
+  },
+  {
+    "id": 8,
+    "title": "Chess Exhibition with Grandmaster",
+    "category": "Special",
+    "description": "A special exhibition match featuring International Grandmaster visiting our university.",
+    "imageUrl": "https://images.pexels.com/photos/7330186/pexels-photo-7330186.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "date": "2024-12-10"
+  },
+  {
+    "id": 9,
+    "title": "Virtual Chess Tournament",
+    "category": "Tournament",
+    "description": "Our first-ever online chess tournament connecting students from multiple universities.",
+    "imageUrl": "https://images.pexels.com/photos/277124/pexels-photo-277124.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "date": "2024-11-28"
+  }
+]

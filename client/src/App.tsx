@@ -13,12 +13,26 @@ import About from "@/pages/about";
 import Events from "@/pages/events";
 import EventDetail from "@/pages/event-detail";
 import Members from "@/pages/members";
-import News from "@/pages/news";
-import NewsDetail from "@/pages/news-detail";
+import Gallery from "@/pages/gallery";
 import Contact from "@/pages/contact";
 import Join from "@/pages/join";
-
+// Redirect /news routes to gallery temporarily
 import NotFound from "@/pages/not-found";
+
+// Temporary redirect components for News
+const NewsRedirect = () => {
+  useEffect(() => {
+    window.location.href = '/gallery';
+  }, []);
+  return <div className="py-20 text-center">Redirecting to Gallery...</div>;
+};
+
+const NewsDetailRedirect = () => {
+  useEffect(() => {
+    window.location.href = '/gallery';
+  }, []);
+  return <div className="py-20 text-center">Redirecting to Gallery...</div>;
+};
 
 function Router() {
   const [location] = useLocation();
@@ -38,8 +52,7 @@ function Router() {
           <Route path="/events" component={Events} />
           <Route path="/event/:id" component={EventDetail} />
           <Route path="/members" component={Members} />
-          <Route path="/news" component={News} />
-          <Route path="/news/:id" component={NewsDetail} />
+          <Route path="/gallery" component={Gallery} />
           <Route path="/contact" component={Contact} />
           <Route path="/join" component={Join} />
           <Route component={NotFound} />
