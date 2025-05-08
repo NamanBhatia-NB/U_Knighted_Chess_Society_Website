@@ -124,14 +124,15 @@ export default function Events() {
                     <div className="flex justify-between items-start mb-4">
                       <div>
                         <span className={`inline-block px-3 py-1 ${
-                          event.type === 'Tournament' ? 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-100' : 
-                          event.type === 'Workshop' ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100' : 
-                          event.type === 'Regular' ? 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-100' :
-                          event.type === 'Social' ? 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-100' :
-                          event.type === 'Special' ? 'bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-100' :
-                          'bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-100'
-                        } text-sm font-medium rounded-full border border-transparent dark:border-opacity-10`}>
-                          {event.type}
+                          event.type === 'Tournament' ? 'bg-blue-100 text-blue-800 dark:bg-blue-100 dark:text-white dark:shadow-glow-blue' : 
+                          event.type === 'Workshop' ? 'bg-green-100 text-green-800 dark:bg-green-100 dark:text-white dark:shadow-glow-green' : 
+                          event.type === 'Regular' ? 'bg-purple-100 text-purple-800 dark:bg-purple-100 dark:text-white dark:shadow-glow-purple' :
+                          event.type === 'Social' ? 'bg-yellow-100 text-yellow-800 dark:bg-yellow-100 dark:text-white dark:shadow-glow-yellow' :
+                          event.type === 'Special' ? 'bg-indigo-100 text-indigo-800 dark:bg-indigo-100 dark:text-white dark:shadow-glow-indigo' :
+                          'bg-gray-100 text-gray-800 dark:bg-gray-100 dark:text-gray-800'
+                        } text-sm font-medium rounded-full border border-transparent dark:border-opacity-20 relative overflow-hidden`}>
+                          <span className="relative z-10">{event.type}</span>
+                          <span className="absolute inset-0 bg-gradient-to-tr from-white/30 to-transparent dark:from-white/10 dark:to-transparent"></span>
                         </span>
                         <h3 className="mt-3 text-xl font-bold">{event.title}</h3>
                       </div>

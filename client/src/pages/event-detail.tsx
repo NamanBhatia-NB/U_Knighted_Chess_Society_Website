@@ -77,21 +77,21 @@ export default function EventDetail() {
   // Format the date for display
   const formattedDate = event ? format(new Date(event.date), "MMMM d, yyyy") : "";
 
-  // Determine event type color with dark mode support
+  // Determine event type color with enhanced dark mode support and vibrancy
   const getEventTypeColor = (type: string) => {
     switch (type) {
       case "Tournament":
-        return "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-100 border border-transparent dark:border-blue-800/20";
+        return "bg-blue-100 text-blue-800 dark:bg-blue-100 dark:text-white border border-transparent dark:border-blue-400/30 dark:shadow-glow-blue";
       case "Workshop":
-        return "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100 border border-transparent dark:border-green-800/20";
+        return "bg-green-100 text-green-800 dark:bg-green-100 dark:text-white border border-transparent dark:border-green-400/30 dark:shadow-glow-green";
       case "Regular":
-        return "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-100 border border-transparent dark:border-purple-800/20";
+        return "bg-purple-100 text-purple-800 dark:bg-purple-100 dark:text-white border border-transparent dark:border-purple-400/30 dark:shadow-glow-purple";
       case "Social":
-        return "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-100 border border-transparent dark:border-yellow-800/20";
+        return "bg-yellow-100 text-yellow-800 dark:bg-yellow-100 dark:text-white border border-transparent dark:border-yellow-400/30 dark:shadow-glow-yellow";
       case "Special":
-        return "bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-100 border border-transparent dark:border-indigo-800/20";
+        return "bg-indigo-100 text-indigo-800 dark:bg-indigo-100 dark:text-white border border-transparent dark:border-indigo-400/30 dark:shadow-glow-indigo";
       default:
-        return "bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-100 border border-transparent dark:border-gray-700/20";
+        return "bg-gray-100 text-gray-800 dark:bg-gray-100 dark:text-gray-800 border border-transparent dark:border-gray-400/30";
     }
   };
 
