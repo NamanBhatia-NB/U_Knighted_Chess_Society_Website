@@ -54,37 +54,12 @@ export function useScrollTheme(options: ScrollThemeOptions = {}) {
         
         // Calculate transition factor for dark mode gradient (0-100%)
         // This will transition from light dark mode to darker as user scrolls down
-        const darkTransitionFactor = Math.min(100, ((percentage - threshold) / (100 - threshold)) * 100);
-        root.style.setProperty('--dark-transition-factor', `${darkTransitionFactor}%`);
+        const darkTransitionFactor = Math.min(100, ((percentage) / 40) * 100);
         
-        // Calculate the interpolated background color based on scroll position
-        // This creates a smooth gradient effect from lighter to darker shades of dark mode
-        const bgLightHsl = 'var(--dark-background-light)';
-        const bgDarkHsl = 'var(--dark-background-dark)';
+        // Set the CSS variable for the transition factor (used by the CSS calculations)
+        root.style.setProperty('--dark-transition-factor', `${darkTransitionFactor}`);
         
-        const cardLightHsl = 'var(--dark-card-light)';
-        const cardDarkHsl = 'var(--dark-card-dark)';
-        
-        const popoverLightHsl = 'var(--dark-popover-light)';
-        const popoverDarkHsl = 'var(--dark-popover-dark)';
-        
-        // Update CSS custom properties directly for the theme transition
-        if (darkTransitionFactor <= 0) {
-          // At the top, use lightest dark mode
-          root.style.setProperty('--background', bgLightHsl);
-          root.style.setProperty('--card', cardLightHsl);
-          root.style.setProperty('--popover', popoverLightHsl);
-        } else if (darkTransitionFactor >= 100) {
-          // At the bottom, use darkest dark mode
-          root.style.setProperty('--background', bgDarkHsl);
-          root.style.setProperty('--card', cardDarkHsl);
-          root.style.setProperty('--popover', popoverDarkHsl);
-        } else {
-          // In between, use CSS custom property with the transition factor
-          root.style.setProperty('--background-transition-factor', `${darkTransitionFactor}`);
-          root.style.setProperty('--card-transition-factor', `${darkTransitionFactor}`);
-          root.style.setProperty('--popover-transition-factor', `${darkTransitionFactor}`);
-        }
+        console.log("Scroll percentage: ", percentage, "Dark transition factor:", darkTransitionFactor);
       } else {
         // Set light theme directly on the root element for immediate effect
         root.classList.remove('dark');

@@ -87,14 +87,20 @@ export function ThemeProvider({
     if (appliedTheme === "dark") {
       // Use lighter dark mode on initial load if scroll transitions are enabled
       const bgColor = scrollThemeTransition 
-        ? 'hsl(224 30% 15%)' // Lighter dark mode for top of page
+        ? 'hsl(224 40% 25%)' // Lighter dark mode for top of page (matching our CSS variables)
         : 'hsl(224 71% 4%)';  // Original dark mode
         
-      document.querySelectorAll('main').forEach(el => {
+      document.querySelectorAll('main, body, section, div').forEach(el => {
         (el as HTMLElement).style.backgroundColor = bgColor;
       });
+
+      // Set initial scroll position to 0 to ensure we start with the lightest dark mode
+      if (scrollThemeTransition) {
+        window.scrollTo(0, 0);
+        document.documentElement.style.setProperty('--dark-transition-factor', '0');
+      }
     } else {
-      document.querySelectorAll('main').forEach(el => {
+      document.querySelectorAll('main, body').forEach(el => {
         (el as HTMLElement).style.backgroundColor = 'hsl(0 0% 100%)';
       });
     }

@@ -35,12 +35,12 @@
 
     --radius: 0.5rem;
     
-    /* Dark mode theme gradient variables */
-    --dark-background-light: 224 30% 15%; /* Lighter navy background for start of scroll */
+    /* Dark mode theme gradient variables - more pronounced difference */
+    --dark-background-light: 224 40% 25%; /* Much lighter navy background for start of scroll */
     --dark-background-dark: 224 71% 4%; /* Original dark navy (#050A14) for end of scroll */
-    --dark-card-light: 225 30% 18%; /* Lighter card background */
+    --dark-card-light: 225 40% 28%; /* Much lighter card background */
     --dark-card-dark: 225 50% 7%; /* Original card background */
-    --dark-popover-light: 224 30% 17%;
+    --dark-popover-light: 224 40% 27%;
     --dark-popover-dark: 224 71% 6%;
     
     color-scheme: light;
@@ -381,31 +381,35 @@
     transition: background-color var(--theme-transition-duration) var(--transition-timing);
   }
   
-  /* Dark mode background gradient based on scroll position */
+  /* Dark mode background gradient based on scroll position - with !important to override any other styles */
   .dark body, 
   .dark main,
   .dark section,
   .dark header, 
   .dark footer,
-  .dark div.bg-background {
+  .dark div.bg-background,
+  .dark .bg-background,
+  .dark [data-theme="dark"] {
     background-color: hsl(
       224 
-      calc(30% - ((30% - 71%) * var(--dark-transition-factor, 0%) / 100%))
-      calc(15% - ((15% - 4%) * var(--dark-transition-factor, 0%) / 100%))
-    );
-    transition: background-color var(--theme-transition-speed) ease;
+      calc(40% - ((40% - 71%) * var(--dark-transition-factor, 0%) / 100%))
+      calc(25% - ((25% - 4%) * var(--dark-transition-factor, 0%) / 100%))
+    ) !important;
+    transition: background-color var(--theme-transition-speed) ease !important;
   }
   
   /* Dark mode card gradient based on scroll position */
   .dark .theme-card,
   .dark [data-theme="dark"],
-  .dark .bg-card {
+  .dark .bg-card,
+  .dark div[class*="card"],
+  .dark .card {
     background-color: hsl(
       225
-      calc(30% - ((30% - 50%) * var(--dark-transition-factor, 0%) / 100%))
-      calc(18% - ((18% - 7%) * var(--dark-transition-factor, 0%) / 100%))
-    );
-    transition: background-color var(--theme-transition-speed) ease;
+      calc(40% - ((40% - 50%) * var(--dark-transition-factor, 0%) / 100%))
+      calc(28% - ((28% - 7%) * var(--dark-transition-factor, 0%) / 100%))
+    ) !important;
+    transition: background-color var(--theme-transition-speed) ease !important;
   }
   
   /* Theme transition elements with smooth transitions */
