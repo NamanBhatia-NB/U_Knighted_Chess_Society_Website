@@ -82,46 +82,15 @@ export function ThemeProvider({
       root.style.setProperty('--background-transition', 'hsl(0 0% 100%)');
     }
     
-    // Apply immediate background colors to prevent flashing
-    // These will be transitioned by CSS
+    // Only set theme class on the HTML element
     if (appliedTheme === "dark") {
-      // Use lighter dark mode on initial load if scroll transitions are enabled
-      const bgColor = scrollThemeTransition 
-        ? 'hsl(224 40% 25%)' // Lighter dark mode for top of page (matching our CSS variables)
-        : 'hsl(224 71% 4%)';  // Original dark mode
-      
-      // Force background color to all elements
-      document.body.style.backgroundColor = bgColor;
-      
-      // Systematically apply to main containers
-      const elementsToStyle = [
-        'body', 'main', 'section', 'div', 'header', 'footer', 
-        '.bg-background', '[class*="bg-"]'
-      ];
-      
-      elementsToStyle.forEach(selector => {
-        document.querySelectorAll(selector).forEach(el => {
-          (el as HTMLElement).style.backgroundColor = bgColor;
-        });
-      });
-      
-      // Set inline style on the html element directly
-      document.documentElement.style.backgroundColor = bgColor;
-
-      // Set initial scroll position to 0 to ensure we start with the lightest dark mode
+      // Set scroll position to top for best experience with the gradient
       if (scrollThemeTransition) {
-        window.scrollTo(0, 0);
-        document.documentElement.style.setProperty('--dark-transition-factor', '0');
-        
-        // Force a scroll event to trigger the scroll theme update
+        // Force a scroll event to ensure proper rendering
         setTimeout(() => {
           window.dispatchEvent(new Event('scroll'));
         }, 100);
       }
-    } else {
-      document.querySelectorAll('main, body, html, div, section').forEach(el => {
-        (el as HTMLElement).style.backgroundColor = 'hsl(0 0% 100%)';
-      });
     }
   }, [theme, scrollThemeTransition]);
   

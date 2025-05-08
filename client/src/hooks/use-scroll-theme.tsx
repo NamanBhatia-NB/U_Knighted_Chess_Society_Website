@@ -41,43 +41,8 @@ export function useScrollTheme(options: ScrollThemeOptions = {}) {
     // Update CSS variable for scroll position
     root.style.setProperty(scrollPositionVar, `${percentage}%`);
     
-    // Handle theme changes based on threshold
+    // Handle theme changes based on threshold - only for automatic theme switching
     if (scrollThemeTransition) {
-      // Always apply dark mode gradient when in dark mode, regardless of threshold
-      if (theme === 'dark') {
-        // Calculate transition factor for dark mode gradient (0-100%)
-        // This will transition from light dark mode to darker as user scrolls down
-        const darkTransitionFactor = Math.min(100, ((percentage) / 30) * 100);
-        
-        // Set the CSS variable for the transition factor (used by the CSS calculations)
-        root.style.setProperty('--dark-transition-factor', `${darkTransitionFactor}`);
-        
-        // Apply direct color to body based on scroll position
-        let bgColor;
-        if (percentage < 5) {
-          // Lighter color at the top of the page
-          bgColor = 'hsl(224 40% 25%)';
-        } else if (percentage > 30) {
-          // Darker color after scrolling down
-          bgColor = 'hsl(224 71% 4%)';
-        } else {
-          // Gradual transition in between
-          const saturationValue = 40 - ((percentage / 30) * (40 - 71));
-          const lightnessValue = 25 - ((percentage / 30) * (25 - 4));
-          bgColor = `hsl(224 ${saturationValue}% ${lightnessValue}%)`;
-        }
-        
-        // Apply the color to main elements
-        document.body.style.backgroundColor = bgColor;
-        
-        // Apply to all major containers
-        document.querySelectorAll('main, section, header, footer, .bg-background, [class*="bg-"]').forEach(el => {
-          (el as HTMLElement).style.backgroundColor = bgColor;
-        });
-        
-        console.log("Scroll percentage: ", percentage, "Dark transition factor:", darkTransitionFactor);
-      }
-      
       // Theme switching based on threshold
       if (percentage > threshold) {
         // Set dark theme directly on the root element
