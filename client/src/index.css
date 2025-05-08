@@ -37,14 +37,23 @@
     color-scheme: light;
   }
 
+  /* Dark mode theme gradient variables */
+  --dark-background-light: 224 30% 15%; /* Lighter navy background for start of scroll */
+  --dark-background-dark: 224 71% 4%; /* Original dark navy (#050A14) for end of scroll */
+  --dark-card-light: 225 30% 18%; /* Lighter card background */
+  --dark-card-dark: 225 50% 7%; /* Original card background */
+  --dark-popover-light: 224 30% 17%;
+  --dark-popover-dark: 224 71% 6%;
+  
   :root.dark, .dark {
-    --background: 224 71% 4%; /* Very dark navy (#050A14) */
+    /* Use CSS custom properties to interpolate between light and dark shades based on scroll position */
+    --background: var(--dark-background-dark); /* Default to darkest (bottom of page) */
     --foreground: 0 0% 98%; /* Nearly white text for contrast */
 
-    --card: 225 50% 7%; /* Slightly lighter than background */
+    --card: var(--dark-card-dark); /* Default to darkest */
     --card-foreground: 0 0% 98%;
 
-    --popover: 224 71% 6%;
+    --popover: var(--dark-popover-dark);
     --popover-foreground: 0 0% 98%;
 
     --primary: 0 0% 98%; /* Almost white for primary */
