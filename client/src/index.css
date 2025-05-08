@@ -89,27 +89,7 @@
     color: hsl(var(--foreground));
   }
 
-  .dark html, 
-  .dark body, 
-  .dark main,
-  .dark div,
-  .dark section,
-  .dark p,
-  .dark span,
-  .dark h1,
-  .dark h2,
-  .dark h3,
-  .dark h4,
-  .dark h5,
-  .dark h6,
-  .dark a,
-  .dark button,
-  .dark input,
-  .dark select,
-  .dark textarea {
-    background-color: hsl(var(--background));
-    color: hsl(var(--foreground));
-  }
+  /* Removed conflicting background colors for dark theme in favor of gradient effect */
   
   /* Explicit color overrides for all text elements */
   .dark p, 
@@ -381,36 +361,7 @@
     transition: background-color var(--theme-transition-duration) var(--transition-timing);
   }
   
-  /* Dark mode background gradient based on scroll position - with !important to override any other styles */
-  .dark body, 
-  .dark main,
-  .dark section,
-  .dark header, 
-  .dark footer,
-  .dark div.bg-background,
-  .dark .bg-background,
-  .dark [data-theme="dark"] {
-    background-color: hsl(
-      224 
-      calc(40% - ((40% - 71%) * var(--dark-transition-factor, 0%) / 100%))
-      calc(25% - ((25% - 4%) * var(--dark-transition-factor, 0%) / 100%))
-    ) !important;
-    transition: background-color var(--theme-transition-speed) ease !important;
-  }
-  
-  /* Dark mode card gradient based on scroll position */
-  .dark .theme-card,
-  .dark [data-theme="dark"],
-  .dark .bg-card,
-  .dark div[class*="card"],
-  .dark .card {
-    background-color: hsl(
-      225
-      calc(40% - ((40% - 50%) * var(--dark-transition-factor, 0%) / 100%))
-      calc(28% - ((28% - 7%) * var(--dark-transition-factor, 0%) / 100%))
-    ) !important;
-    transition: background-color var(--theme-transition-speed) ease !important;
-  }
+  /* Removed dark mode background gradient styles that conflict with DarkModeScroll component */
   
   /* Theme transition elements with smooth transitions */
   .theme-transition-bg {
