@@ -580,3 +580,23 @@
 * {
   border-color: hsl(var(--border));
 }
+
+/* Special styles for the dark mode gradient effect */
+#dark-mode-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.dark body {
+  position: relative;
+  background-color: transparent !important;
+}
+
+.dark main, .dark section, .dark div, .dark header, .dark footer {
+  background-color: transparent !important;
+}

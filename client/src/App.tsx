@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
+import DarkModeScroll from "@/components/DarkModeScroll";
 
 // Pages
 import Home from "@/pages/home";
@@ -193,6 +194,7 @@ function App() {
     <ThemeProvider defaultTheme="system">
       <QueryClientProvider client={queryClient}>
         <ScrollAnimationWrapper />
+        <DarkModeScroll />
         <Router />
         <Toaster />
       </QueryClientProvider>
