@@ -15,112 +15,57 @@
     <script type="module" src="/src/main.tsx"></script>
     
     <style>
-      /* Custom dark mode gradient that only appears when .dark class is present */
-      .dark body {
-        background-color: hsl(224 71% 4%); /* Base dark color */
+      /* Define color stops for dark mode with different sections */
+      .dark section:nth-of-type(1) {
+        background-color: hsl(224 40% 25%); /* Lightest navy for first section */
       }
       
-      /* Overlay that changes based on scroll position */
-      .dark body::before {
+      .dark section:nth-of-type(2) {
+        background-color: hsl(224 46% 20%); /* Medium-light navy */
+      }
+      
+      .dark section:nth-of-type(3) {
+        background-color: hsl(224 55% 15%); /* Medium navy */
+      }
+      
+      .dark section:nth-of-type(4),
+      .dark section:nth-of-type(5),
+      .dark section:nth-of-type(n+6) {
+        background-color: hsl(224 71% 4%); /* Darkest navy */
+      }
+      
+      /* Ensure smooth transitions between sections */
+      .dark section {
+        position: relative;
+        transition: background-color 0.5s ease;
+      }
+      
+      /* Add gradient overlays between sections */
+      .dark section:not(:last-of-type)::after {
         content: "";
-        position: fixed;
-        top: 0;
+        position: absolute;
+        bottom: 0;
         left: 0;
-        right: 0;
-        height: 100vh;
-        z-index: -1;
-        background: linear-gradient(
-          to bottom,
-          hsl(224 40% 25%) 0%,  /* Start with lighter navy */
-          hsl(224 46% 20%) 20%, 
-          hsl(224 51% 15%) 40%,
-          hsl(224 60% 10%) 60%,
-          hsl(224 71% 4%) 80%   /* Final deep navy */
-        );
+        width: 100%;
+        height: 50px;
+        background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.15));
         pointer-events: none;
-        transform-origin: top;
-        transition: transform 0.1s ease-out;
+      }
+      
+      /* Also apply to direct container elements */
+      .dark main > div:first-child {
+        background-color: hsl(224 40% 25%);
+      }
+      
+      /* Background color for header in dark mode */
+      .dark header {
+        background-color: hsl(224 40% 25%) !important;
+      }
+      
+      /* Basic dark mode body background */
+      .dark body {
+        background-color: hsl(224 71% 4%);
       }
     </style>
-    
-    <script>
-      // Script to handle the scroll effect for dark mode only
-      document.addEventListener('DOMContentLoaded', function() {
-        let lastScrollPosition = 0;
-        
-        function updateDarkModeGradient() {
-          // Only apply effect if in dark mode
-          if (!document.documentElement.classList.contains('dark')) return;
-          
-          const scrollPosition = window.scrollY;
-          const windowHeight = window.innerHeight;
-          const documentHeight = document.body.scrollHeight;
-          
-          // Calculate what percentage of possible scroll distance has been scrolled
-          const scrollableDistance = documentHeight - windowHeight;
-          const scrollPercentage = Math.min(100, (scrollPosition / (scrollableDistance * 0.3)) * 100);
-          
-          // Transform the gradient overlay based on scroll percentage
-          // This makes the gradient "stretch" downward as user scrolls
-          const transform = `translateY(-${scrollPercentage}%)`;
-          document.body.style.setProperty('--dark-scroll-transform', transform);
-          
-          // Apply transform directly to the pseudo-element via a CSS variable
-          document.documentElement.style.setProperty('--dark-scroll-transform', transform);
-          
-          // Direct style application to the body's before element
-          const styleSheet = document.styleSheets[document.styleSheets.length - 1];
-          
-          // First, try to find and remove any existing rule
-          for (let i = 0; i < styleSheet.cssRules.length; i++) {
-            if (styleSheet.cssRules[i].selectorText === '.dark body::before') {
-              styleSheet.deleteRule(i);
-              break;
-            }
-          }
-          
-          // Then add the updated rule with transform
-          styleSheet.insertRule(`.dark body::before { 
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 100vh;
-            z-index: -1;
-            background: linear-gradient(
-              to bottom,
-              hsl(224 40% 25%) 0%,
-              hsl(224 46% 20%) 20%, 
-              hsl(224 51% 15%) 40%,
-              hsl(224 60% 10%) 60%,
-              hsl(224 71% 4%) 80%
-            );
-            pointer-events: none;
-            transform: translateY(-${scrollPercentage}%);
-            transition: transform 0.1s ease-out;
-          }`, styleSheet.cssRules.length);
-          
-          lastScrollPosition = scrollPosition;
-        }
-        
-        // Initial setup
-        updateDarkModeGradient();
-        
-        // Listen for scroll events
-        window.addEventListener('scroll', updateDarkModeGradient);
-        
-        // Listen for theme changes
-        const observer = new MutationObserver(function(mutations) {
-          mutations.forEach(function(mutation) {
-            if (mutation.attributeName === 'class') {
-              updateDarkModeGradient();
-            }
-          });
-        });
-        
-        observer.observe(document.documentElement, { attributes: true });
-      });
-    </script>
   </body>
 </html>
