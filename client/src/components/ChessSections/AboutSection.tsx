@@ -16,37 +16,37 @@ export default function AboutSection() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="order-2 md:order-1">
-            <h2 className="text-3xl md:text-4xl font-bold font-display mb-6">About Our Chess Society</h2>
-            <p className="mb-4 text-lg">Founded in 2005, the University Chess Society has grown into a vibrant community where chess enthusiasts of all skill levels can learn, practice, and compete.</p>
+            <h2 className="text-3xl md:text-4xl font-bold font-display mb-6 bg-transparent">About Our Chess Society</h2>
+            <p className="mb-4 text-lg">Founded in 2025, the University Chess Society has grown into a vibrant community where chess enthusiasts of all skill levels can learn, practice, and compete.</p>
             <p className="mb-6 text-lg">Our mission is to promote chess culture on campus, provide training resources, and organize tournaments that challenge and inspire our members.</p>
             
             <div className="grid grid-cols-2 gap-4 mt-8">
-              <div className="glass p-4 rounded-lg">
+              <div className="glass p-4 rounded-lg ">
                 <div className="text-accent text-3xl mb-2">
                   <i className="ri-group-line"></i>
                 </div>
-                <h3 className="font-bold text-xl mb-2">{stats?.members || '120+' }</h3>
+                <h3 className="font-bold text-xl mb-2  bg-transparent">{stats?.members || '120+' }</h3>
                 <p className="text-primary/70">Active Members</p>
               </div>
               <div className="glass p-4 rounded-lg">
                 <div className="text-accent text-3xl mb-2">
                   <i className="ri-trophy-line"></i>
                 </div>
-                <h3 className="font-bold text-xl mb-2">{stats?.tournaments || '15+'}</h3>
+                <h3 className="font-bold text-xl mb-2  bg-transparent">{stats?.tournaments || '15+'}</h3>
                 <p className="text-primary/70">Tournaments Yearly</p>
               </div>
               <div className="glass p-4 rounded-lg">
                 <div className="text-accent text-3xl mb-2">
                   <i className="ri-medal-line"></i>
                 </div>
-                <h3 className="font-bold text-xl mb-2">{stats?.championships || '8'}</h3>
+                <h3 className="font-bold text-xl mb-2  bg-transparent">{stats?.championships || '8'}</h3>
                 <p className="text-primary/70">Regional Championships</p>
               </div>
               <div className="glass p-4 rounded-lg">
                 <div className="text-accent text-3xl mb-2">
                   <i className="ri-calendar-event-line"></i>
                 </div>
-                <h3 className="font-bold text-xl mb-2">Weekly</h3>
+                <h3 className="font-bold text-xl mb-2  bg-transparent">Weekly</h3>
                 <p className="text-primary/70">Club Meetings</p>
               </div>
             </div>
@@ -59,7 +59,7 @@ export default function AboutSection() {
                 alt="Students playing chess in a modern club setting" 
                 className="rounded-lg shadow-xl w-full" 
               />
-              <div className="absolute -bottom-6 -right-6 w-24 h-24 rounded-lg flex items-center justify-center shadow-lg since-box">
+              <div className="absolute -bottom-6 -right-6 w-24 h-24 rounded-lg flex items-center justify-center shadow-lg bg-accent since-box">
                 <span className="font-display font-bold text-xl">Since<br/>2025</span>
               </div>
             </div>

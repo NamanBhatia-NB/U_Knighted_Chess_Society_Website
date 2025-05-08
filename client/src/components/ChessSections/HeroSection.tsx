@@ -8,8 +8,8 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-r from-black/30 to-transparent dark:from-black/50 dark:to-black/20 z-[1]"></div>
       
       <div className="container w-full px-4 sm:px-6 flex flex-col lg:flex-row items-center lg:items-start justify-between gap-8 relative z-10">
-        <div className="w-full lg:w-1/2 max-w-3xl mx-auto lg:mx-0 order-1 mt-6 lg:mt-0 glass dark:bg-black/30 p-6 rounded-xl backdrop-blur-sm">
-          <h1 className="font-bold font-display mb-6 text-center lg:text-left">
+        <div className="w-full lg:w-1/2 max-w-3xl mx-auto lg:mx-0 order-1 mt-6 lg:mt-0 glass dark:bg-black/30 p-6 rounded-xl backdrop-blur-md">
+          <h1 className="font-bold font-display mb-6 text-center lg:text-left bg-transparent">
             <div className="flex flex-col space-y-2 md:space-y-4">
               <span className="text-3xl md:text-5xl lg:text-6xl text-accent dark:text-accent/90 drop-shadow-lg">U-knighted Chess Society</span>
               <span className="text-2xl md:text-4xl lg:text-5xl text-primary dark:text-white drop-shadow-md">Master the Game</span>

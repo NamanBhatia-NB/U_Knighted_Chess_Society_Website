@@ -16,23 +16,7 @@ import Members from "@/pages/members";
 import Gallery from "@/pages/gallery";
 import Contact from "@/pages/contact";
 import Join from "@/pages/join";
-// Redirect /news routes to gallery temporarily
 import NotFound from "@/pages/not-found";
-
-// Temporary redirect components for News
-const NewsRedirect = () => {
-  useEffect(() => {
-    window.location.href = '/gallery';
-  }, []);
-  return <div className="py-20 text-center">Redirecting to Gallery...</div>;
-};
-
-const NewsDetailRedirect = () => {
-  useEffect(() => {
-    window.location.href = '/gallery';
-  }, []);
-  return <div className="py-20 text-center">Redirecting to Gallery...</div>;
-};
 
 function Router() {
   const [location] = useLocation();

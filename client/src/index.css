@@ -289,8 +289,8 @@
   .dark .established-box,
   .dark .subtitle-box,
   .dark .badge-box {
-    background-color: hsl(var(--accent)/0.2) !important;
-    color: white !important;
+    background-color: hsl(var(--accent)/0.2) ;
+    color: white ;
     border: 1px solid hsl(var(--accent)/0.3);
   }
   
@@ -644,13 +644,6 @@
 
 .dark nav a:hover {
   background-color: rgba(100, 150, 255, 0.1);
-}
-
-/* Add a subtle glow to "Join Us" button */
-.dark a[href="/join"],
-.dark [href*="join"]:not([class*="bg-"]) {
-  background-color: hsla(43, 100%, 50%, 0.1) !important;
-  box-shadow: 0 0 15px rgba(255, 200, 0, 0.3);
 }
 
 /* Make the chess board container standout better on dark background */

@@ -38,7 +38,7 @@ export default function Navbar() {
         : "bg-transparent"
     }`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
+        <div className="flex justify-between items-center py-3">
           <Link href="/" className="flex items-center space-x-3 group">
             <div className="w-10 h-10 rounded-full flex items-center justify-center bg-primary/10 dark:bg-primary/20 group-hover:bg-primary/20 dark:group-hover:bg-primary/30 transition-all">
               <img src="/generated-icon.png" alt="Chess society logo" className="w-8 h-8" />
@@ -58,8 +58,8 @@ export default function Navbar() {
               <Link href="/members">
                 <span className="navigation-link text-gray-800 dark:text-gray-100 hover:text-accent dark:hover:text-accent transition-colors font-medium">Members</span>
               </Link>
-              <Link href="/news">
-                <span className="navigation-link text-gray-800 dark:text-gray-100 hover:text-accent dark:hover:text-accent transition-colors font-medium">News</span>
+              <Link href="/gallery">
+                <span className="navigation-link text-gray-800 dark:text-gray-100 hover:text-accent dark:hover:text-accent transition-colors font-medium">Gallery</span>
               </Link>
               <Link href="/contact">
                 <span className="navigation-link text-gray-800 dark:text-gray-100 hover:text-accent dark:hover:text-accent transition-colors font-medium">Contact</span>
@@ -112,8 +112,8 @@ export default function Navbar() {
               <Link href="/members">
                 <span className="navigation-link text-gray-800 dark:text-white hover:text-accent dark:hover:text-accent transition-colors block text-lg font-medium">Members</span>
               </Link>
-              <Link href="/news">
-                <span className="navigation-link text-gray-800 dark:text-white hover:text-accent dark:hover:text-accent transition-colors block text-lg font-medium">News</span>
+              <Link href="/gallery">
+                <span className="navigation-link text-gray-800 dark:text-white hover:text-accent dark:hover:text-accent transition-colors block text-lg font-medium">Gallery</span>
               </Link>
               <Link href="/contact">
                 <span className="navigation-link text-gray-800 dark:text-white hover:text-accent dark:hover:text-accent transition-colors block text-lg font-medium">Contact</span>

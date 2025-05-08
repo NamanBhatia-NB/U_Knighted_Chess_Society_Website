@@ -29,7 +29,7 @@ export default function Contact() {
   return (
     <>
       
-      <div className="pt-24">
+      <div className="my-24">
         <ContactSection />
       </div>
       <Footer />

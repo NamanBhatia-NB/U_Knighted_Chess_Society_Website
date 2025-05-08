@@ -6,7 +6,7 @@ export default function ContactSection() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div className="scrolled-fade-in">
-            <h2 className="text-3xl md:text-4xl font-bold font-display mb-6">Get In Touch</h2>
+            <h2 className="text-3xl md:text-4xl font-bold font-display mb-6 bg-transparent">Get In Touch</h2>
             <p className="mb-8 text-white/80 text-lg">Have questions about our chess society? We're here to help! Reach out to us using the contact form or through our social media channels.</p>
             
             <div className="space-y-6 mb-8">
@@ -15,7 +15,7 @@ export default function ContactSection() {
                   <i className="ri-map-pin-line text-xl"></i>
                 </div>
                 <div>
-                  <h3 className="font-bold">Location</h3>
+                  <h3 className="font-bold bg-transparent">Location</h3>
                   <p className="text-white/70">Student Union Building, Room 305<br/>University Campus</p>
                 </div>
               </div>
@@ -25,7 +25,7 @@ export default function ContactSection() {
                   <i className="ri-time-line text-xl"></i>
                 </div>
                 <div>
-                  <h3 className="font-bold">Meeting Times</h3>
+                  <h3 className="font-bold bg-transparent">Meeting Times</h3>
                   <p className="text-white/70">Thursdays: 7:00 PM - 10:00 PM<br/>Saturdays: 2:00 PM - 6:00 PM</p>
                 </div>
               </div>
@@ -35,7 +35,7 @@ export default function ContactSection() {
                   <i className="ri-mail-line text-xl"></i>
                 </div>
                 <div>
-                  <h3 className="font-bold">Email</h3>
+                  <h3 className="font-bold bg-transparent">Email</h3>
                   <p className="text-white/70">chess@university.edu</p>
                 </div>
               </div>

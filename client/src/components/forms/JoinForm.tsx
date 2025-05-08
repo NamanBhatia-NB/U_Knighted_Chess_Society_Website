@@ -92,7 +92,7 @@ export default function JoinForm() {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-        <h3 className="text-2xl font-bold font-display mb-6">Register Now</h3>
+        <h3 className="text-2xl font-bold font-display mb-6 bg-transparent">Register Now</h3>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <FormField
@@ -159,7 +159,7 @@ export default function JoinForm() {
                 defaultValue={field.value}
               >
                 <FormControl>
-                  <SelectTrigger>
+                  <SelectTrigger className=" bg-transparent">
                     <SelectValue placeholder="Select your level" />
                   </SelectTrigger>
                 </FormControl>
@@ -184,7 +184,7 @@ export default function JoinForm() {
               <FormControl>
                 <Textarea 
                   placeholder="Tell us a bit about yourself and why you're interested in joining our chess society..." 
-                  className="min-h-[80px]"
+                  className="min-h-[80px] bg-transparent"
                   {...field} 
                 />
               </FormControl>
@@ -213,7 +213,7 @@ export default function JoinForm() {
         
         <Button 
           type="submit" 
-          className="w-full bg-primary text-white hover:bg-accent hover:text-primary"
+          className="w-full bg-primary text-white bg-accent hover:text-primary"
           disabled={isSubmitting}
         >
           {isSubmitting ? "Processing..." : "Complete Registration"}

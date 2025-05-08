@@ -90,7 +90,7 @@ export default function Gallery() {
       <main className="pt-24 pb-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 scrolled-fade-in">
-            <h1 className="text-3xl md:text-5xl font-bold font-display mb-4">Chess Society Gallery</h1>
+            <h1 className="text-3xl md:text-5xl font-bold font-display mb-4 bg-transparent">Chess Society Gallery</h1>
             <p className="max-w-2xl mx-auto text-lg text-primary/70 dark:text-white/70">
               Explore moments from our tournaments, workshops, and community events throughout the year.
             </p>
@@ -138,7 +138,7 @@ export default function Gallery() {
                       <span className="relative z-10">{item.category}</span>
                       <span className="absolute inset-0 bg-gradient-to-tr from-white/30 to-transparent dark:from-white/10 dark:to-transparent"></span>
                     </span>
-                    <h3 className="text-xl font-bold text-white mb-2 drop-shadow-md">{item.title}</h3>
+                    <h3 className="text-xl font-bold text-white mb-2 drop-shadow-md bg-transparent">{item.title}</h3>
                     <p className="text-white/80 mb-4 text-sm drop-shadow-sm">{item.description}</p>
                     <span className="text-white/60 text-xs">{formatItemDate(item.date)}</span>
                   </div>
@@ -159,7 +159,7 @@ export default function Gallery() {
 
           {/* Call to action section */}
           <div className="bg-primary/5 dark:bg-white/5 rounded-2xl p-8 md:p-12 text-center mt-12 mb-8 scrolled-fade-in backdrop-blur-sm shadow-lg">
-            <h2 className="text-2xl md:text-3xl font-bold font-display mb-4">Join Us and Create Memories</h2>
+            <h2 className="text-2xl md:text-3xl font-bold font-display mb-4 bg-transparent">Join Us and Create Memories</h2>
             <p className="max-w-2xl mx-auto mb-8 text-primary/80 dark:text-white/80">
               Become part of our chess community and participate in our upcoming events and tournaments. Your moments could be featured in our gallery next!
             </p>

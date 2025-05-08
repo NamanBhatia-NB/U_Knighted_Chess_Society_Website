@@ -8,9 +8,9 @@ export default function Footer() {
           <div className="md:col-span-1">
             <div className="flex items-center space-x-2 mb-4">
               <div className="w-10 h-10 bg-accent rounded-full flex items-center justify-center">
-                <i className="ri-chess-fill text-primary text-2xl"></i>
+                <img src="/generated-icon.png" className="rounded-full" alt="logo" />
               </div>
-              <span className="text-xl font-bold font-display">Chess Society</span>
+              <span className="text-xl font-bold font-display bg-transparent">U-Knighted Chess Society</span>
             </div>
             <p className="text-white/70 mb-4">Promoting chess excellence and community on campus since 2005.</p>
             <div className="flex space-x-4">
@@ -28,21 +28,21 @@ export default function Footer() {
               </a>
             </div>
           </div>
-          
+
           <div>
-            <h3 className="text-lg font-bold mb-4">Quick Links</h3>
+            <h3 className="text-lg font-bold mb-4 bg-transparent">Quick Links</h3>
             <ul className="space-y-2">
               <li><Link href="/about" className="text-white/70 hover:text-accent transition-colors">About Us</Link></li>
               <li><Link href="/events" className="text-white/70 hover:text-accent transition-colors">Events</Link></li>
               <li><Link href="/members" className="text-white/70 hover:text-accent transition-colors">Members</Link></li>
-              <li><Link href="/news" className="text-white/70 hover:text-accent transition-colors">News</Link></li>
-              <li><Link href="/join" className="text-white/70 hover:text-accent transition-colors">Join Us</Link></li>
+              <li><Link href="/gallery" className="text-white/70 hover:text-accent transition-colors">Gallery</Link></li>
+              <li><Link href="/join" className="text-white/70 hover:text-accent transition-colors bg-transparent">Join Us</Link></li>
             </ul>
           </div>
-          
-          
+
+
           <div>
-            <h3 className="text-lg font-bold mb-4">Newsletter</h3>
+            <h3 className="text-lg font-bold mb-4 bg-transparent">Newsletter</h3>
             <p className="text-white/70 mb-4">Subscribe to receive updates about tournaments, events, and chess tips.</p>
             <form className="space-y-2" onSubmit={(e) => {
               e.preventDefault();
@@ -91,15 +91,15 @@ export default function Footer() {
                   }
                 });
             }}>
-              <input 
-                name="email" 
-                type="email" 
-                placeholder="Your email address" 
-                className="w-full px-4 py-2 rounded-lg bg-white/5 border border-white/20 focus:ring-2 focus:ring-accent focus:border-accent" 
-                required 
+              <input
+                name="email"
+                type="email"
+                placeholder="Your email address"
+                className="w-full px-4 py-2 rounded-lg bg-white/5 border border-white/20 focus:ring-2 focus:ring-accent focus:border-accent"
+                required
               />
-              <button 
-                type="submit" 
+              <button
+                type="submit"
                 className="w-full bg-accent text-primary hover:bg-white transition-colors px-4 py-2 rounded-lg font-medium"
               >
                 Subscribe
@@ -107,9 +107,9 @@ export default function Footer() {
             </form>
           </div>
         </div>
-        
+
         <div className="mt-12 pt-6 border-t border-white/10 text-center text-white/50 text-sm">
-          <p>&copy; {new Date().getFullYear()} University Chess Society. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} U-Knighted Chess Society. All rights reserved.</p>
         </div>
       </div>
     </footer>

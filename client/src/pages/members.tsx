@@ -76,11 +76,10 @@ export default function Members() {
 
   return (
     <>
-      
       <main className="pt-24 pb-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 scrolled-fade-in">
-            <h1 className="text-3xl md:text-5xl font-bold font-display mb-4">Our Chess Champions</h1>
+            <h1 className="text-3xl md:text-5xl font-bold font-display mb-4 bg-transparent">Our Chess Champions</h1>
             <p className="max-w-2xl mx-auto text-lg text-primary/70">
               Meet the talented players who represent our chess society and help make our community thrive.
             </p>
@@ -128,7 +127,7 @@ export default function Members() {
                     alt={`${member.name}, ${member.role}`}
                     className="w-32 h-32 rounded-full mx-auto mb-4 object-cover object-center border-4 border-accent shadow-lg"
                   />
-                  <h3 className="text-xl font-bold mb-1">{member.name}</h3>
+                  <h3 className="text-xl font-bold mb-1 bg-transparent">{member.name}</h3>
                   <p className={`mb-3 font-medium ${member.role === 'President' ? 'text-accent' :
                     member.role === 'Vice President' ? 'text-accent/80' :
                       'text-primary/70'
@@ -181,7 +180,7 @@ export default function Members() {
 
           {/* ELO Rating explanation */}
           <div className="glass rounded-xl p-8 md:p-12 mt-16 mb-12 scrolled-fade-in">
-            <h2 className="text-2xl md:text-3xl font-bold font-display mb-4">Understanding ELO Ratings</h2>
+            <h2 className="text-2xl md:text-3xl font-bold font-display mb-4 bg-transparent">Understanding ELO Ratings</h2>
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <p className="mb-4">

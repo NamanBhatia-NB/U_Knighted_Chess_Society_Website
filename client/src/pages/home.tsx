@@ -7,6 +7,7 @@ import JoinSection from "@/components/ChessSections/JoinSection";
 import ContactSection from "@/components/ChessSections/ContactSection";
 import Footer from "@/components/ChessSections/Footer";
 import { useEffect } from "react";
+import GallerySection from "@/components/ChessSections/GallerySection";
 
 export default function Home() {
   // Add all fade-in-visible classes immediately to prevent blank spaces
@@ -22,9 +23,9 @@ export default function Home() {
       <main>
         <HeroSection />
         <AboutSection />
+        <GallerySection />
         <EventsSection />
         <MembersSection />
-        <NewsSection />
         <JoinSection />
         <ContactSection />
       </main>

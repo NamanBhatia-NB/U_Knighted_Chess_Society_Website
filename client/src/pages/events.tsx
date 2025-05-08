@@ -73,7 +73,7 @@ export default function Events() {
       <main className="pt-24 pb-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 scrolled-fade-in">
-            <h1 className="text-3xl md:text-5xl font-bold font-display mb-4">Chess Society Events</h1>
+            <h1 className="text-3xl md:text-5xl font-bold font-display mb-4 bg-transparent">Chess Society Events</h1>
             <p className="max-w-2xl mx-auto text-lg text-primary/70">
               Join us for tournaments, workshops, and social gatherings throughout the academic year.
             </p>
@@ -134,7 +134,7 @@ export default function Events() {
                           <span className="relative z-10">{event.type}</span>
                           <span className="absolute inset-0 bg-gradient-to-tr from-white/30 to-transparent dark:from-white/10 dark:to-transparent"></span>
                         </span>
-                        <h3 className="mt-3 text-xl font-bold">{event.title}</h3>
+                        <h3 className="mt-3 text-xl font-bold  bg-transparent">{event.title}</h3>
                       </div>
                       <div className="text-right">
                         <div className="text-sm text-gray-600 dark:text-gray-300">{formatEventDate(event.date)}</div>
@@ -174,11 +174,11 @@ export default function Events() {
 
           {/* Calendar integration */}
           <div className="text-center mt-16 mb-12 scrolled-fade-in">
-            <h2 className="text-2xl md:text-3xl font-bold font-display mb-4">Get Notified About Upcoming Events</h2>
+            <h2 className="text-2xl md:text-3xl font-bold font-display mb-4  bg-transparent">Get Notified About Upcoming Events</h2>
             <p className="max-w-2xl mx-auto mb-8">
               Subscribe to our newsletter or follow our social media channels to stay updated about all our upcoming events.
             </p>
-            <Link href="/contact" className="inline-flex items-center space-x-2 px-6 py-3 bg-primary dark:bg-accent text-white dark:text-primary hover:bg-primary/90 hover:text-white dark:hover:bg-accent/90 dark:hover:text-primary transition-all duration-200 rounded-lg font-medium shadow-sm hover:shadow-md">
+            <Link href="/contact" className="inline-flex items-center space-x-2 px-6 py-3 bg-primary dark:bg-accent text-white dark:text-primary hover:bg-primary/90 hover:text-white dark:hover:bg-accent/90 bg-accent dark:hover:text-primary transition-all duration-200 rounded-lg font-medium shadow-sm hover:shadow-md">
               <span>Join Our Newsletter</span>
               <i className="ri-mail-line ml-2"></i>
             </Link>
