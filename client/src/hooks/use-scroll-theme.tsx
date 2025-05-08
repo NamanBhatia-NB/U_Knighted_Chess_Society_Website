@@ -43,34 +43,60 @@ export function useScrollTheme(options: ScrollThemeOptions = {}) {
     
     // Handle theme changes based on threshold
     if (scrollThemeTransition) {
-      // Force the appropriate theme based on scroll position
-      if (percentage > threshold) {
-        // Set dark theme directly on the root element for immediate effect
-        root.classList.remove('light');
-        root.classList.add('dark');
-        
-        // Update theme state in provider to maintain consistency
-        if (theme !== 'dark') setTheme('dark');
-        
+      // Always apply dark mode gradient when in dark mode, regardless of threshold
+      if (theme === 'dark') {
         // Calculate transition factor for dark mode gradient (0-100%)
         // This will transition from light dark mode to darker as user scrolls down
-        const darkTransitionFactor = Math.min(100, ((percentage) / 40) * 100);
+        const darkTransitionFactor = Math.min(100, ((percentage) / 30) * 100);
         
         // Set the CSS variable for the transition factor (used by the CSS calculations)
         root.style.setProperty('--dark-transition-factor', `${darkTransitionFactor}`);
         
+        // Apply direct color to body based on scroll position
+        let bgColor;
+        if (percentage < 5) {
+          // Lighter color at the top of the page
+          bgColor = 'hsl(224 40% 25%)';
+        } else if (percentage > 30) {
+          // Darker color after scrolling down
+          bgColor = 'hsl(224 71% 4%)';
+        } else {
+          // Gradual transition in between
+          const saturationValue = 40 - ((percentage / 30) * (40 - 71));
+          const lightnessValue = 25 - ((percentage / 30) * (25 - 4));
+          bgColor = `hsl(224 ${saturationValue}% ${lightnessValue}%)`;
+        }
+        
+        // Apply the color to main elements
+        document.body.style.backgroundColor = bgColor;
+        
+        // Apply to all major containers
+        document.querySelectorAll('main, section, header, footer, .bg-background, [class*="bg-"]').forEach(el => {
+          (el as HTMLElement).style.backgroundColor = bgColor;
+        });
+        
         console.log("Scroll percentage: ", percentage, "Dark transition factor:", darkTransitionFactor);
+      }
+      
+      // Theme switching based on threshold
+      if (percentage > threshold) {
+        // Set dark theme directly on the root element
+        if (!root.classList.contains('dark')) {
+          root.classList.remove('light');
+          root.classList.add('dark');
+          
+          // Update theme state in provider to maintain consistency
+          if (theme !== 'dark') setTheme('dark');
+        }
       } else {
-        // Set light theme directly on the root element for immediate effect
-        root.classList.remove('dark');
-        root.classList.add('light');
-        
-        // Update theme state in provider to maintain consistency
-        if (theme !== 'light') setTheme('light');
-        
-        // Calculate transition factor (100-0%)
-        const transitionFactor = Math.max(0, 100 - (percentage / threshold) * 100);
-        root.style.setProperty('--theme-transition-factor', `${transitionFactor}%`);
+        // Set light theme directly on the root element
+        if (!root.classList.contains('light')) {
+          root.classList.remove('dark');
+          root.classList.add('light');
+          
+          // Update theme state in provider to maintain consistency
+          if (theme !== 'light') setTheme('light');
+        }
       }
     }
   }, [scrollThemeTransition, threshold, theme, setTheme, scrollPositionVar]);
