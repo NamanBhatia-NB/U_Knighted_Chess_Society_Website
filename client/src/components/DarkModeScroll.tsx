@@ -40,8 +40,6 @@ export default function DarkModeScroll() {
       
       const bgColor = `hsl(${h} ${s}% ${l}%)`;
       
-      console.log("Scroll position:", scrollPercentage, "Color:", bgColor);
-      
       // Set the background color styles to be applied by the component
       // Apply background color to component AND body element
       document.body.style.backgroundColor = bgColor;

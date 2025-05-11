@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import ChessBoard3D from "@/components/ChessBoard3D";
+import ChessModelViewer from "@/components/ChessModelViewer";
 
 export default function HeroSection() {
   return (
@@ -34,7 +34,7 @@ export default function HeroSection() {
         <div className="w-full sm:w-4/5 md:w-3/4 lg:w-1/2 h-[300px] sm:h-[350px] md:h-[400px] lg:h-[500px] xl:h-[550px] order-2 relative">
           {/* Add subtle glow effect behind 3D chess board in dark mode */}
           <div className="absolute inset-0 bg-gradient-to-tr from-accent/20 to-transparent dark:from-accent/30 dark:to-transparent rounded-xl blur-xl transform scale-95 opacity-70 dark:opacity-90"></div>
-          <ChessBoard3D />
+          <ChessModelViewer />
         </div>
       </div>
       
