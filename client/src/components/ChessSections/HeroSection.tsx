@@ -6,8 +6,8 @@ export default function HeroSection() {
     <section className="relative min-h-screen flex flex-col md:flex-col lg:flex-row w-full items-center overflow-hidden py-20" style={{ minHeight: '800px' }}>
       <div className="container w-full px-4 sm:px-6 flex flex-col lg:flex-row items-center lg:items-start justify-between gap-8 relative z-10">
         <div className="w-full lg:w-1/2 max-w-3xl mx-auto lg:mx-0 order-1 mt-6 lg:mt-0">
-          <h1 className="font-bold font-display mb-6 text-center lg:text-left bg-transparent">
-            <div className="flex flex-col space-y-2 md:space-y-4">
+          <h1 className="font-bold font-display mb-6 text-center lg:text-left">
+            <div className="flex flex-col space-y-2 md:space-y-4 bg-transparent">
               <span className="text-3xl md:text-5xl lg:text-6xl !text-accent">U-knighted Chess Society</span>
               <span className="text-2xl md:text-4xl lg:text-5xl text-primary">Master the Game</span>
               <span className="text-2xl md:text-4xl lg:text-5xl text-primary">Elevate Your Mind</span>
@@ -28,7 +28,7 @@ export default function HeroSection() {
           </div>
         </div>
 
-        <div className="w-full sm:w-4/5 md:w-3/4 lg:w-1/2 h-[300px] sm:h-[350px] md:h-[400px] lg:h-[500px] xl:h-[550px] order-2">
+        <div className="w-full  md:w-3/4 lg:w-1/2 h-[300px] sm:h-[350px] md:h-[400px] lg:h-[500px] xl:h-[550px] order-2 flex items-center justify-center -mt-20">
           <ChessModelViewer />
         </div>
       </div>

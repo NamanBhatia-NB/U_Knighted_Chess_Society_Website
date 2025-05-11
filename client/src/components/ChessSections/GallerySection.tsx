@@ -59,7 +59,7 @@ export default function GallerySection() {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 scrolled-fade-in">
-          <h2 className="text-3xl md:text-4xl font-bold font-display mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold font-display mb-4 bg-transparent">
             Chess Society Gallery
           </h2>
           <p className="max-w-2xl mx-auto text-lg text-primary/70 dark:text-white/70">

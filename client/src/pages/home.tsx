@@ -1,12 +1,11 @@
+import { useEffect } from "react";
 import HeroSection from "@/components/ChessSections/HeroSection";
 import AboutSection from "@/components/ChessSections/AboutSection";
 import EventsSection from "@/components/ChessSections/EventsSection";
 import MembersSection from "@/components/ChessSections/MembersSection";
-import NewsSection from "@/components/ChessSections/NewsSection";
 import JoinSection from "@/components/ChessSections/JoinSection";
 import ContactSection from "@/components/ChessSections/ContactSection";
 import Footer from "@/components/ChessSections/Footer";
-import { useEffect } from "react";
 import GallerySection from "@/components/ChessSections/GallerySection";
 
 export default function Home() {

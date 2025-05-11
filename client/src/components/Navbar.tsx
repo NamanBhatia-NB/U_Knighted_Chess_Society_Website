@@ -32,11 +32,10 @@ export default function Navbar() {
   }, [location]);
 
   return (
-    <header className={`fixed w-full z-50 transition-all duration-300 ${
-      scrolled 
-        ? "theme-aware-glass shadow-md backdrop-blur-md" 
-        : "bg-transparent"
-    }`}>
+    <header className={`fixed w-full z-50 transition-all duration-300 ${scrolled
+      ? "bg-black/10 dark:bg-black/10 border-b border-white/10 backdrop-blur-md shadow-md"
+      : "bg-transparent"
+      }`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-3">
           <Link href="/" className="flex items-center space-x-3 group">
@@ -66,7 +65,7 @@ export default function Navbar() {
               </Link>
               <ThemeToggle />
               <Link href="/join">
-                <button 
+                <button
                   className="bg-accent hover:bg-accent/90 active:bg-accent/80 text-white font-medium px-5 py-2 rounded-md transition-all shadow-sm hover:shadow-md"
                 >
                   Join Us
@@ -95,13 +94,14 @@ export default function Navbar() {
 
         {/* Mobile navigation */}
         {isMobile && (
-          <div 
+          <div
             className={`${mobileMenuOpen ? 'block' : 'hidden'} 
-              theme-aware-glass dark:bg-gray-900/95 rounded-lg mt-2 p-5 
-              absolute w-[calc(100%-2rem)] left-0 right-0 mx-4
-              shadow-lg border border-gray-200/20 dark:border-gray-700/30
-              backdrop-blur-xl transition-all duration-200`}
+            bg-black/10 dark:bg-black/10 backdrop-blur-lg
+            rounded-lg mt-2 p-5 absolute w-[calc(100%-2rem)] left-0 right-0 mx-4
+            shadow-lg border border-white/10 dark:border-white/10
+            transition-all duration-200 z-40`}
           >
+
             <nav className="flex flex-col space-y-5">
               <Link href="/about">
                 <span className="navigation-link text-gray-800 dark:text-white hover:text-accent dark:hover:text-accent transition-colors block text-lg font-medium">About</span>

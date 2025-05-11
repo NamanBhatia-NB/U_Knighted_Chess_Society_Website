@@ -3,55 +3,41 @@ import { useTheme } from './ThemeProvider';
 
 export default function DarkModeScroll() {
   const { theme } = useTheme();
-  const [scrollPosition, setScrollPosition] = useState(0);
   const [backgroundStyles, setBackgroundStyles] = useState({});
-  
-  // Handle scroll events
+
   useEffect(() => {
-    // Only apply this effect in dark mode
     if (theme !== 'dark') {
       setBackgroundStyles({});
+      document.body.style.backgroundColor = '';
+      document.documentElement.style.backgroundColor = '';
       return;
     }
-    
+
     const handleScroll = () => {
       const position = window.scrollY;
       const windowHeight = window.innerHeight;
       const documentHeight = document.body.scrollHeight;
-      
-      // Don't proceed if there's not enough content to scroll
+
       if (documentHeight <= windowHeight) return;
-      
-      // Calculate scroll percentage (0-1)
+
       const scrollableDistance = documentHeight - windowHeight;
-      // Clamp to first 30% of the page for the effect
-      const scrollPercentage = Math.min(1, position / (scrollableDistance * 0.3));
-      
-      setScrollPosition(scrollPercentage);
-      
-      // Interpolate between colors based on scroll percentage
-      const lightNavy = { h: 224, s: 45, l: 28 }; // Lighter navy (slightly more vibrant)
-      const darkNavy = { h: 224, s: 75, l: 4 };   // Darker navy (more saturated)
-      
-      // Linear interpolation between colors
-      const h = lightNavy.h;
-      const s = lightNavy.s + scrollPercentage * (darkNavy.s - lightNavy.s);
-      const l = lightNavy.l + scrollPercentage * (darkNavy.l - lightNavy.l);
-      
-      const bgColor = `hsl(${h} ${s}% ${l}%)`;
-      
-      // Set the background color styles to be applied by the component
-      // Apply background color to component AND body element
+      const scrollPercentage = Math.min(1, position / (scrollableDistance * 0.3)); // Only affect first 30% of scroll
+
+      // HSL interpolation from light black (l=16%) to deep black (l=4%)
+      const light = 16;
+      const dark = 4;
+      const l = light + scrollPercentage * (dark - light);
+      const bgColor = `hsl(0, 0%, ${l}%)`; // hue=0, saturation=0 (pure grayscale)
+
       document.body.style.backgroundColor = bgColor;
       document.documentElement.style.backgroundColor = bgColor;
-      
-      // Also set background color on main containers for good measure
+
       document.querySelectorAll('main').forEach(el => {
         if (el instanceof HTMLElement) {
           el.style.backgroundColor = 'transparent';
         }
       });
-      
+
       setBackgroundStyles({
         position: 'fixed',
         top: 0,
@@ -61,28 +47,19 @@ export default function DarkModeScroll() {
         backgroundColor: bgColor,
         zIndex: -1,
         pointerEvents: 'none',
-        transition: 'background-color 0.2s ease-out'
+        transition: 'background-color 0.2s ease-out',
       });
     };
-    
-    // Initial call
+
     handleScroll();
-    
-    // Add event listener
     window.addEventListener('scroll', handleScroll);
-    
-    // Clean up
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, [theme]);
-  
-  // Only render this component in dark mode
-  if (theme !== 'dark') {
-    return null;
-  }
-  
-  return (
-    <div style={backgroundStyles} id="dark-mode-background" />
-  );
+
+  if (theme !== 'dark') return null;
+
+  return <div style={backgroundStyles} id="dark-mode-background" />;
 }

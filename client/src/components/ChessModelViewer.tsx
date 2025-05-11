@@ -13,7 +13,7 @@ const ChessModelViewer = () => (
         exposure="1"
         shadow-intensity="1"
         shadow-softness="1"
-        style={{ width: '100%', height: '100%' }}
+        style={{ width: '110%', height: '110%' }}
     ></model-viewer>
 );
 
