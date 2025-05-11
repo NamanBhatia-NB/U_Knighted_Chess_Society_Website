@@ -1,6 +1,7 @@
 'use client';
 import '@google/model-viewer';
 
+
 export default function ChessModelViewer() {
     return (
         <div className="w-full h-[600px]">
