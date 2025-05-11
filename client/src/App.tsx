@@ -6,7 +6,6 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import DarkModeScroll from "@/components/DarkModeScroll";
-import '@google/model-viewer';
 
 // Pages
 import Home from "@/pages/home";
