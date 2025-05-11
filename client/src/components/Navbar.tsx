@@ -76,7 +76,7 @@ export default function Navbar() {
 
           {/* Mobile menu and theme toggle */}
           {isMobile && (
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-4 backdrop:blur-md">
               <ThemeToggle />
               <button
                 type="button"

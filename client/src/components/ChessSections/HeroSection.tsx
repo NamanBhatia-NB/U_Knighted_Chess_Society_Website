@@ -6,8 +6,8 @@ export default function HeroSection() {
     <section className="relative min-h-screen flex flex-col md:flex-col lg:flex-row w-full items-center overflow-hidden py-20" style={{ minHeight: '600px' }}>
       <div className="container w-full px-4 sm:px-6 flex flex-col lg:flex-row items-center lg:items-start justify-between gap-8 relative z-10">
         <div className="w-full lg:w-1/2 max-w-3xl mx-auto lg:mx-0 order-1 mt-6 lg:mt-0">
-          <h1 className="font-bold font-display mb-6 text-center lg:text-left">
-            <div className="flex flex-col space-y-2 md:space-y-4 bg-transparent">
+          <h1 className="font-bold font-display mb-6 text-center lg:text-left bg-transparent">
+            <div className="flex flex-col space-y-2 md:space-y-4">
               <span className="text-3xl md:text-5xl lg:text-6xl !text-accent">U-knighted Chess Society</span>
               <span className="text-2xl md:text-4xl lg:text-5xl text-primary">Master the Game</span>
               <span className="text-2xl md:text-4xl lg:text-5xl text-primary">Elevate Your Mind</span>
