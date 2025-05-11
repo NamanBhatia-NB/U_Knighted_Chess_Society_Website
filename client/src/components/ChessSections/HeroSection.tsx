@@ -4,7 +4,7 @@ import ChessModelViewer from "@/components/ChessModelViewer";
 export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex flex-col md:flex-col lg:flex-row w-full items-center overflow-hidden py-20" style={{ minHeight: '600px' }}>
-      <div className="container w-full px-4 sm:px-6 flex flex-col lg:flex-row items-center lg:items-start justify-between gap-8 relative z-10">
+      <div className="container w-full px-4 sm:px-6 flex flex-col lg:flex-row items-center lg:items-start justify-between gap-36 relative z-10 ">
         <div className="w-full lg:w-1/2 max-w-3xl mx-auto lg:mx-0 order-1 mt-6 lg:mt-0">
           <h1 className="font-bold font-display mb-6 text-center lg:text-left bg-transparent">
             <div className="flex flex-col space-y-2 md:space-y-4">
@@ -14,7 +14,7 @@ export default function HeroSection() {
             </div>
           </h1>
           
-          <p className="text-base md:text-lg lg:text-xl mb-8 text-white md:text-white lg:text-black text-center lg:text-left">
+          <p className="text-base md:text-lg lg:text-xl mb-8 dark:text-white text-black text-center lg:text-left">
             Join our institute's premier chess community where strategy meets passion, and champions are made move by move.
           </p>
           

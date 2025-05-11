@@ -159,7 +159,7 @@ export default function JoinForm() {
                 defaultValue={field.value}
               >
                 <FormControl>
-                  <SelectTrigger className=" bg-transparent">
+                  <SelectTrigger className=" bg-white">
                     <SelectValue placeholder="Select your level" />
                   </SelectTrigger>
                 </FormControl>
@@ -184,7 +184,7 @@ export default function JoinForm() {
               <FormControl>
                 <Textarea 
                   placeholder="Tell us a bit about yourself and why you're interested in joining our chess society..." 
-                  className="min-h-[80px] bg-transparent"
+                  className="min-h-[80px] bg-white"
                   {...field} 
                 />
               </FormControl>
@@ -213,7 +213,7 @@ export default function JoinForm() {
         
         <Button 
           type="submit" 
-          className="w-full bg-primary text-white bg-accent hover:text-primary"
+          className="w-full bg-primary hover:bg-white text-white hover:text-primary"
           disabled={isSubmitting}
         >
           {isSubmitting ? "Processing..." : "Complete Registration"}
